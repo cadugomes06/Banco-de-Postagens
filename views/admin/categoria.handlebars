@@ -1,0 +1,45 @@
+<style>
+    .categoria-container {
+        margin-top: 4rem;
+        margin-left: 4rem;
+    }
+    .categoria-container h2 {
+        margin-bottom: 2rem;
+    }
+    hr {
+        margin-bottom: 1rem;
+        width: 600px;
+    }
+    .card-container {
+        margin: 1rem 2rem;
+        padding: 20px;
+        border: 1px solid #eee;
+    }
+    .card  {
+        color: black;
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
+
+
+
+
+<div class="categoria-container">
+
+
+<h2>Lista de categorias: </h2>
+{{#each categorias}}
+    <div class="card-container">
+        <div class="card">
+            <h4>{{nome}}</h4>
+            <p>{{slug}}</p>
+        </div>
+    </div>
+{{else}}
+{{/each}}
+
+<hr>
+<a href="/admin/categorias/add"><button class="btn">Nova categoria</button></a>
+</div>
