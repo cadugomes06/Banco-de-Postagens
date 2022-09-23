@@ -1,0 +1,50 @@
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid rgb(185, 181, 181);
+        padding: 3rem 0;
+        margin: 4rem 14rem;
+    }
+    form input {
+        width: 400px;
+        height: 35px;
+        border: none;
+        border-radius: 4px;
+        background-color: #eee;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        padding: 8px;
+    }
+    form label {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .alert {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 30px;
+        padding: 5px;
+        background-color: tomato;
+        color: black;
+    }
+</style>
+
+{{#each erros}}
+    <div class="alert"><p>{{texto}}</p></div>
+    {{else}}
+{{/each}}
+
+<form action="/admin/categorias/edit" method="POST">
+    <input type="hidden" name="id" value="{{categoria._id}}"/>
+
+    <label for="nome">Nome: </label>
+    <input type="text" id="nome" name="nome"  value="{{categoria.nome}}">
+
+    <label for="slug">Slug: </label>
+    <input type="text" id="slug" name="slug" value="{{categoria.slug}}">
+
+    <button class="btn">Editar categoria</button>
+</form>

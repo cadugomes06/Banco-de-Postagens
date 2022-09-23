@@ -14,11 +14,17 @@
         margin: 1rem 2rem;
         padding: 20px;
         border: 1px solid #eee;
+        border-radius: 6px;
     }
     .card  {
         color: black;
         width: 100%;
         height: 100%;
+    }
+    .card button {
+        margin-top: 20px;
+        text-transform: lowercase;
+        background-color: rgb(10, 117, 117);
     }
 
 </style>
@@ -35,6 +41,7 @@
         <div class="card">
             <h4>{{nome}}</h4>
             <p>{{slug}}</p>
+            <a href="/admin/categorias/edit/{{_id}}"><button class="btn">Editar categoria</button></a>
         </div>
     </div>
 {{else}}
