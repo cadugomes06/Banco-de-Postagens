@@ -78,8 +78,18 @@ router.post("/categorias/edit", (req, res) => {
             res.redirect("/admin/categorias")
         })
     }).catch((err) => {
-        req.flash("error_msg", "Houve um erro na operação")
+        req.flash("error_msg", "Houve um erro na operação de edição")
         res.redirect("/admin/categorias")
+    })
+})
+
+router.post('/categorias/deletar', (req, res) => {
+    Categoria.deleteOne({_id: req.body.id}).then(() => {
+        req.flash('success_msg', "Categoria deletada com sucesso!")
+        res.redirect("/admin/categorias/")
+    }).catch((err) => {
+        req.flash('error_msg', "Houve um erro ao redirecionar")
+        res.redirect('admin/categorias')
     })
 })
 

@@ -24,7 +24,13 @@
     .card button {
         margin-top: 20px;
         text-transform: lowercase;
-        background-color: rgb(10, 117, 117);
+    }
+    .btn-danger {
+        padding: 5px 10px;
+        border-radius: 4px;
+        border: none;
+        color: white;
+        background: rgb(214, 53, 24);
     }
 
 </style>
@@ -41,7 +47,12 @@
         <div class="card">
             <h4>{{nome}}</h4>
             <p>{{slug}}</p>
-            <a href="/admin/categorias/edit/{{_id}}"><button class="btn">Editar categoria</button></a>
+            <a href="/admin/categorias/edit/{{_id}}"><button class="btn ">Editar categoria</button></a>
+
+               <form action="/admin/categorias/deletar" method="POST">
+                 <input type="hidden" name="id" value="{{_id}}">
+                 <button type="submit" class="btn-danger">Deletar</button>
+                </form>
         </div>
     </div>
 {{else}}
