@@ -13,6 +13,36 @@
     .btn-NewPost {
         margin: 1rem 0 0 2rem;
     }
+    .post-container {
+         margin-top: 4rem;
+        margin-left: 4rem;
+        background-color: #eee;
+        border-radius: 6px;
+    }
+       .card-post {
+        margin: 1rem 2rem;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .card-post h2 {
+        text-decoration:underline;
+        margin-bottom: 10px;
+    }
+    .btn-edit{
+        padding: 5px 10px;
+        font-size: 12px;
+        margin-top: 20px;
+    }
+     .btn-alert{
+        background-color: rgb(214, 32, 0);
+        padding: 5px 10px;
+        font-size: 12px;
+        margin-top: 5px;
+    }
 </style>
 
 {{#each erros}}
@@ -23,3 +53,21 @@
 <h2 class="title-listPost">Lista de Posts: </h2>
 <hr>
 <a href="/admin/postagens/add"><button class="btn btn-NewPost">Novo Post</button></a>
+
+{{#each postagens}}
+    <div class="post-container ">
+        <div class="card-post ">
+            <h2>{{titulo}}</h2>
+            <h3>{{slug}}</h3>
+            <p>descrição: {{descricao}}</p>
+            <p>Conteudo: {{conteudo}}</p>
+            <p>Categoria: {{categoria.nome}}</p>
+            <p>Data: {{data}}</p>
+            <a href="/admin/postagens/edit/{{_id}}"><button class="btn btn-edit">Editar Postagem</button></a>
+            <a href="/admin/postagens/deletar/{{_id}}"><button class="btn btn-alert">Deletar Postagem</button></a>
+        </div>
+    </div>
+
+{{else}}
+    <p>Nenhuma postagem registrada!</p>
+{{/each}}
