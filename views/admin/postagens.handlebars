@@ -1,0 +1,25 @@
+<style>
+    .alert {
+        display: flex;
+        background-color: tomato;
+        width: 100%;
+        color: black;
+        padding: 2px;
+        border-bottom: 1px solid #eee;
+    }
+    .title-listPost {
+        margin: 2rem 0 1rem 2rem;
+    }
+    .btn-NewPost {
+        margin: 1rem 0 0 2rem;
+    }
+</style>
+
+{{#each erros}}
+ <div class="alert">{{texto}}</div>
+{{else}}
+{{/each}}
+
+<h2 class="title-listPost">Lista de Posts: </h2>
+<hr>
+<a href="/admin/postagens/add"><button class="btn btn-NewPost">Novo Post</button></a>
