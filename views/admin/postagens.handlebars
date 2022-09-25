@@ -59,9 +59,11 @@
         <div class="card-post ">
             <h2>{{titulo}}</h2>
             <h3>{{slug}}</h3>
-            <p>descrição: {{descricao}}</p>
-            <p>Conteudo: {{conteudo}}</p>
-            <p>Categoria: {{categoria.nome}}</p>
+            <hr>
+            <p><strong>Descrição:</strong> {{descricao}}</p>
+            <p><strong>Conteúdo:</strong> {{conteudo}}</p>
+            <hr>
+            <p><strong>Categoria:</strong> {{categoria.nome}}</p>
             <p>Data: {{data}}</p>
             <a href="/admin/postagens/edit/{{_id}}"><button class="btn btn-edit">Editar Postagem</button></a>
             <a href="/admin/postagens/deletar/{{_id}}"><button class="btn btn-alert">Deletar Postagem</button></a>

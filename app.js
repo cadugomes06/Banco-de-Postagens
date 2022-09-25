@@ -30,7 +30,10 @@ const Postagem = mongoose.model('postagens')
     app.use(express.json());
     app.use(express.urlencoded({extended: true}))
     //handlebars
-    app.engine('handlebars',handlebars.engine({defaulyLayout:'main'}))
+    app.engine('handlebars',handlebars.engine({defaulyLayout:'main', runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true,
+    }}))
     app.set('view engine', 'handlebars')
     //Mongoose
         mongoose.Promise = global.Promise;
@@ -68,6 +71,36 @@ app.get("/postagem/:slug", (req, res) => {
         res.redirect("/")
     })
 })
+
+app.get("/categorias", (req, res) => {
+
+    Categoria.find().lean().then((categorias) => {
+        res.render("categorias/index", {categorias: categorias})
+    }).catch((err) => {
+        req.flash("error_msg", 'Houve um erro interno ao lista as categorias')
+        res.redirect("/")
+    })
+})
+
+ app.get("/categorias/:slug", (req, res) => {
+    Categoria.findOne({slug: req.params.slug}).then((categoria) => {
+        if(categoria) {
+            Postagem.find({categoria: categoria._id}).lean().then((postagens) => {
+                res.render("categorias/postagens", {postagens: postagens, categoria: categoria})
+                
+            }).catch((err) => {
+                req.flash("error_msg", "Houve um erro ao listar os posts")
+                res.redirect('/')
+            })
+        } else {
+            req.flash("error_msg", "Essa categoria não existe")
+            res.redirect("/")
+        }
+    }).catch((err) => {
+        req.flash("error_msg", "Houve um erro interno ao carregar a página")
+        res.redirect("/")
+    })
+ })
 
 app.get("/404", (req, res) => {
     res.send("Error 404!")

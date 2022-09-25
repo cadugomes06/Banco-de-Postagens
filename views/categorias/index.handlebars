@@ -1,0 +1,31 @@
+<style>
+    .categorias-container {
+        height: calc(100vh - 60px);
+        background-color: #eee;
+        padding: 2rem;
+    }
+    .categorias-container h2 {
+        color: teal;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .categorias-container hr {
+        margin: .5rem 0;
+    }
+    .categorias-container h4 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="categorias-container">
+<h2 class="title-categoria">categorias: </h2>
+<hr>
+{{#each categorias}}
+   <a href="/categorias/{{slug}}"><h4>{{nome}}</h4></a> 
+{{else}}
+ <h4>Nenhuma categoria.</h4>
+{{/each}}
+</div>

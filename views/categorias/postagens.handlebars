@@ -1,0 +1,59 @@
+<style>
+    .card-container{
+        margin: 1rem 2rem;
+    }
+    .card-posts {
+        background-color: #eee;
+        border-radius: 6px;
+        padding: 10px;
+         box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+         display: flex;
+         flex-direction: column;
+    }
+    .card-posts h3{
+        margin-bottom: 10px;
+        color: teal;
+        text-decoration: underline;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .card-posts hr {
+        margin: .5rem 0;
+    }
+    .btn-leia{
+        width: max-content;
+        padding: 5px 8px;
+        margin: 10px 0 15px 0;
+        font-weight: 500;
+        font-size: 10px;
+        cursor: pointer;
+    }
+    .title {
+        margin: 2rem;
+        color: teal;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .categoria{
+        color: black;
+    }
+
+
+</style>
+
+        <h2 class="title">Categoria: <span class="categoria">{{categoria.nome}}</span></h2>
+{{#each postagens}}
+       <div class="card-container">
+        <div class="card-posts">
+
+            <h3>{{titulo}}</h3>
+            <h4>{{descricao}}</h4>
+            <a href="/postagem/{{slug}}"><button class="btn btn-leia">Leia mais</button></a>
+            <hr>
+            <small>Categoria: {{categoria.nome}}</small>
+            <small>Data de publicação: {{data}}</small>
+        </div>
+
+       </div>
+{{else}}
+<h5>Nenhuma postagem</h5>
+
+{{/each}}
