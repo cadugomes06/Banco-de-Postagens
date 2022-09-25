@@ -6,14 +6,14 @@ const Categoria = mongoose.model("categorias")
 require("../models/Postagem")
 const Postagem = mongoose.model('postagens')
 
-router.get('/', (req, res) => {
-    res.render('admin/index')
-    //res.send('Página principal do painel adm')
+/*router.get('/', (req, res) => {
+    res.render('index')
+  
 })
 
 router.get('/posts', (req, res) => {
     res.send('página de posts')
-})
+})*/
 
 router.get('/categorias', (req, res) => {
     Categoria.find().lean().sort({date: 'desc'}).then((categorias) => {
@@ -210,4 +210,4 @@ router.get("/postagens/deletar/:id", (req, res) => {
 
 module.exports = router
 
-//AULA 47 | ver - 48
+//AULA 51 | ver - 52

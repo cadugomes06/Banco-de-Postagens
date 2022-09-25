@@ -4,7 +4,8 @@
         height: 60px;
         background: rgb(49, 48, 48);
         display: flex;
-        padding: 20px;
+        padding-left: 2rem;
+        padding-right: 2rem;
         justify-content: space-between;
         align-items: center;
     }
@@ -20,22 +21,42 @@
             text-transform: uppercase;
             font-weight: bold;
         }
-        .area-pesquisa input {
-            height: 35px;
-            width: 160px;
-            border-radius: 4px;
-            border: none;
-            margin-right: 5px;
+        .area-pesquisa {
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .area-pesquisa span{
+            padding: 10px;
+            border: 2px solid teal;
+            cursor: pointer;
+        }
+        .title-navbar {
+            color: white;
+            text-decoration: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            letter-spacing: 1.2px;
         }
 </style>
 
 <div class="container">
     <div class="logo">
-        <h2>Logo</h2>
+        <a class="title-navbar" href="/">
+        <h2 class="title-navbar">My memorys</h2>
+        </a>
     </div>
 
     <div class="area-pesquisa">
-        <input type="text" >
-        <button class="btn">Procurar</button>
+        <a href='/admin/categorias' class="title-navbar"> 
+          <h4>Categoria</h4>
+        </a>
+        <a href="/admin/postagens"  class="title-navbar">
+        <h4>Postagens</h4>
+        </a>
+
+        <a href=""  class="title-navbar">
+        <span>Login</span>
+        </a>
     </div>
 </div>

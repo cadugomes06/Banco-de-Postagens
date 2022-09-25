@@ -1,0 +1,107 @@
+<style>
+    .home-container {
+        height: 350px;
+        background-color: #eee;
+        display: flex;
+        justify-content: center;
+    }
+    .home-body {
+        width: 800px;
+        height: 200px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;  
+        border-radius: 6px;
+        padding: 40px;
+        margin-top: 4rem;
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+    }
+    .home-body h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: teal;
+    }
+    .home-body p {
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: normal;
+        margin-bottom: 40px;
+    }
+    .home-body .btn {
+        width: max-content;
+        cursor: pointer;
+    }
+    .lista-post {
+        margin: 2rem 2rem;
+        color: teal;
+    }
+    .lista-post h2 {
+        font-weight: bold;
+    }
+    .card-container{
+        margin: 1rem 2rem;
+    }
+    .card-posts {
+        background-color: #eee;
+        border-radius: 6px;
+        padding: 10px;
+         box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+         display: flex;
+         flex-direction: column;
+    }
+    .card-posts h3{
+        margin-bottom: 10px;
+        color: teal;
+        text-decoration: underline;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .card-posts hr {
+        margin: .5rem 0;
+    }
+    .btn-leia{
+        width: max-content;
+        padding: 5px 8px;
+        margin: 10px 0 15px 0;
+        font-weight: 500;
+        font-size: 10px;
+        cursor: pointer;
+    }
+    
+
+
+</style>
+
+
+
+<div class="home-container">
+    <div class="home-body">
+        <h1>Bem vindo as suas Memórias!</h1>
+        <p>Aqui você poderar salvar todo tipo de conteúdo 
+            e criar a categoria que desejar!</p>
+
+            <button class="btn">Criar minha conta</button>
+    </div>
+</div> 
+
+ <div class="lista-post">
+       <h2>Postagens recentes: </h2>
+</div>
+
+{{#each postagens}}
+       <div class="card-container">
+        <div class="card-posts">
+
+            <h3>{{titulo}}</h3>
+            <h4>{{descricao}}</h4>
+            <a href="/postagem/{{slug}}"><button class="btn btn-leia">Leia mais</button></a>
+            <hr>
+            <small>Categoria: {{categoria.nome}}</small>
+            <small>Data de publicação: {{data}}</small>
+        </div>
+
+       </div>
+{{else}}
+<h5>Nenhuma postagem</h5>
+
+{{/each}}

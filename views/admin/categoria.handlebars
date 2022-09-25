@@ -7,7 +7,7 @@
         margin-bottom: 2rem;
     }
     hr {
-        margin-bottom: 1rem;
+        margin: 1rem 0;
         width: 600px;
     }
     .card-container {
@@ -32,7 +32,6 @@
         color: white;
         background: rgb(214, 53, 24);
     }
-
 </style>
 
 
@@ -41,6 +40,8 @@
 <div class="categoria-container">
 
 
+<a href="/admin/categorias/add"><button class="btn">Nova categoria</button></a>
+<hr>
 <h2>Lista de categorias: </h2>
 {{#each categorias}}
     <div class="card-container">
@@ -58,6 +59,4 @@
 {{else}}
 {{/each}}
 
-<hr>
-<a href="/admin/categorias/add"><button class="btn">Nova categoria</button></a>
 </div>
