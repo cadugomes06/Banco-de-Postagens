@@ -1,14 +1,18 @@
 const mongoose = require("mongoose")
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
 const Usuario = new Schema({
     nome: {
         type: String,
-        required: true
+        required: true,
     },
     email: {
         type: String,
-        required: true
+        required: true,
+    },
+    eAdmin: {
+        type: Number,String,
+        default: 0,
     },
     senha: {
         type: String,
@@ -16,4 +20,4 @@ const Usuario = new Schema({
     }
 })
 
-mongoose.model("usuarios", Usuarios)
+mongoose.model("usuarios", Usuario)

@@ -1,0 +1,82 @@
+<style>
+    .registro-container { 
+        height: calc(100vh - 60px);
+        background-color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .body-registro{
+        background-color: white;
+        height: 450px;
+        width: 400px;
+        border-radius: 6px;
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+        padding: 26px;
+    }
+     .body-registro h2{
+        margin-bottom: 40px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bold;
+        color: teal;
+     }
+    .body-registro form {
+        display: flex;
+        flex-direction: column;
+    }
+    .body-registro form label {
+        color: rgb(3, 82, 82);
+        margin-bottom: 2.5px;
+        font-weight: bold;
+    }
+    .body-registro form input {
+        margin-bottom: 15px;
+        height: 32px;
+        border-radius: 4px;
+        border: none;
+        background-color: #eee;
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+        outline-color: teal;
+        padding: 0 8px;
+    }
+    .btn {
+        margin-top: 20px;
+    }
+    .alertErro {
+        width: 100%;
+        padding: 10px;
+        background-color: tomato;
+        color: black;
+    }
+
+</style>
+
+{{#each erros}}
+    <div class="alertErro">{{texto}}</div>
+{{else}}
+
+{{/each}}
+
+<div class="registro-container">
+    
+    
+    <div class="body-registro">
+         <h2>Cria sua conta</h2>
+        <form accept="" method="POST">
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" class="form-control">
+
+            <label for="email">Email: </label>
+            <input type="email" name="email" class="form-control"> 
+
+            <label for="senha">Senha: </label>
+            <input type="password" name="senha" class="form-control">
+
+            <label for="senha2">Repita sua senha: </label>
+            <input type="password" name="senha2" class="form-control">
+
+            <button type="submit" class="btn">Registrar</button>
+        </form>
+    </div>
+
+</div>
