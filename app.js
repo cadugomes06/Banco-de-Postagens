@@ -12,6 +12,7 @@ const Categoria = mongoose.model("categorias")
 require("./models/Postagem")
 const Postagem = mongoose.model('postagens')
 const usuarios = require("./routes/usuario")
+require("./config/auth")(passport)
 
 //configurações
     //Sessão
@@ -20,6 +21,9 @@ const usuarios = require("./routes/usuario")
         resave: true,
         saveUninitialized: true
     }))
+
+    app.use(passport.initialize())
+    app.use(passport.session())
     app.use(flash())
     //Middleware
     app.use((req, res, next) => {
@@ -119,3 +123,5 @@ const PORT = 8081
 app.listen(PORT, () => {
     console.log('servidor rodando!')
 })
+
+//parei 58 - ver 59
