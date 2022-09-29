@@ -31,6 +31,7 @@ require("./config/auth")(passport);
         res.locals.success_msg = req.flash("success_msg")
         res.locals.error_msg = req.flash("error_msg")
         res.locals.error = req.flash("error")
+        res.locals.user = req.user || null;
         next()
     })
     //body parser
@@ -126,4 +127,4 @@ app.listen(PORT, () => {
     console.log('servidor rodando!')
 })
 
-//parei 58 - ver 59
+//parei 60 - ver 61

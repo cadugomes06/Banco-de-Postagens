@@ -45,20 +45,20 @@
 <div class="container">
     <div class="logo">
         <a class="title-navbar" href="/">
-        <h2 class="title-navbar">My Memories</h2>
+        <h2 class="title-navbar">My Blog Node.js</h2>
         </a>
     </div>
 
     <div class="area-pesquisa">
         <a href='/categorias' class="title-navbar"> 
-          <h4>Categoria</h4>
+          <h4>Categoria - </h4>
         </a>
-        <a href="/postagens"  class="title-navbar">
-        <h4>Postagens</h4>
-        </a>
-
+        {{#if user}}
+           <a href="/usuarios/logout"  class="title-navbar">Olá {{user.nome}}, deseja sair? </a>
+        {{else}}
         <a href="/usuarios/login"  class="title-navbar">
         <span>Login</span>
         </a>
+        {{/if}}
     </div>
 </div>
